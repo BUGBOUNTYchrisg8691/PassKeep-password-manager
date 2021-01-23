@@ -1,15 +1,26 @@
 import './App.css';
 
-import NewPassForm from './components/NewPassForm';
+import {
+  Route,
+  Switch,
+} from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 
 function App() {
-  const [getNewPassword, setNewPassword] = useState("");
   return (
     <div className="App">
-      <NewPassForm
-        getNewPassword={getNewPassword}
-        setNewPassword={setNewPassword}
-      />
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Signin />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+      </Switch>
     </div>
   );
 }
